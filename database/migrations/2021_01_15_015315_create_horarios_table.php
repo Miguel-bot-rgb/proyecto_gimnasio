@@ -17,6 +17,10 @@ class CreateHorariosTable extends Migration
             $table->id();
             $table->date('horario_inicio');
             $table->date('horario_fin');
+            $table->unsignedBigInteger('turno_id')->unique();
+            $table->foreign('turno_id')->references('id')->on('turnos')->onDelete('cascade');
+
+            $table->timestamps();
         });
     }
 

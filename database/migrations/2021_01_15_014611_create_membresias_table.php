@@ -18,8 +18,9 @@ class CreateMembresiasTable extends Migration
             $table->string('nombre',40);
             $table->string('descripcion',40);
             $table->float('precio');
-            $table->integer('entrenamientos_id')->unique();
+            $table->unsignedBigInteger('entrenamientos_id')->unique();
             $table->foreign('entrenamientos_id')->references('id')->on('entrenamientos')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 

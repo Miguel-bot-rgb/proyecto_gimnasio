@@ -14,6 +14,7 @@ class CreateEntrenadorsTable extends Migration
     public function up()
     {
         Schema::create('entrenadors', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('persona_id')->unique();
             $table->foreign('persona_id')->references('id')->on('personas')->onDelete('cascade');
 

@@ -24,8 +24,8 @@ class CreatePersonasTable extends Migration
             $table->integer('telefono');
             // llave foranea
             $table->unsignedBigInteger('direccion_id')->unique();
-            $table->foreign('direccion_id')->references('id')->on('direcciones')->onDelete('cascade');
-            
+            $table->foreign('direccion_id')->references('id')->on('direccions')->onDelete('cascade');
+
             $table->string('tipo_A')->nullable();
             $table->string('tipo_E')->nullable();
             $table->timestamps();

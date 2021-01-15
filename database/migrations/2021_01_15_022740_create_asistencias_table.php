@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEntrenadorEntrenamientoHorariosTable extends Migration
+class CreateAsistenciasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateEntrenadorEntrenamientoHorariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('entrenador_entrenamiento_horarios', function (Blueprint $table) {
-            $table->integer('entrenadores_id')->unique();
-            $table->integer('entrenamiento_horario_id')->unique();
-            $table->foreign('entrenadores_id')->references('id')->on('entrenadors')->onDelete('cascade');
+        Schema::create('asistencias', function (Blueprint $table) {
+            $table->id();
+            $table->date('fecha_hora');
+            $table->char('asistencia');
+            $table->unsignedBigInteger('cliente_id')->unique();
+            $table->unsignedBigInteger('entrenamiento_horario_id')->unique();
+            $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete('cascade');
             $table->foreign('entrenamiento_horario_id')->references('id')->on('entrenamiento_horarios')->onDelete('cascade');
             $table->timestamps();
         });
@@ -29,6 +32,6 @@ class CreateEntrenadorEntrenamientoHorariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('entrenador_entrenamiento_horarios');
+        Schema::dropIfExists('asistencias');
     }
 }

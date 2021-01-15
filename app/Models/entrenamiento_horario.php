@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class entrenador extends Model
+class entrenamiento_horario extends Model
 {
     use HasFactory;
     // relacion muchos a muchos
-    public function entrenamiento_horarios(){
-        return $this->belongsToMany('app\Models\entrenamiento_horario');
+    public function entrenadors(){
+        return $this->belongsToMany('app\Models\entrenador');
     }
 }

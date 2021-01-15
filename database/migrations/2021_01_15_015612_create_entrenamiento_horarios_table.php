@@ -19,10 +19,11 @@ class CreateEntrenamientoHorariosTable extends Migration
             $table->integer('cupo_maxPrueba');
             $table->text('comentario');
             //llave foranea
-            $table->integer('horario_id')->unique();
-            $table->integer('entrenamiento_id')->unique();
-            $table->foreign('horario_id')->references('id')->on('horarios')->onDelete('cascade');
+            $table->unsignedBigInteger('entrenamiento_id')->unique();
+            $table->unsignedBigInteger('horario_id')->unique();
             $table->foreign('entrenamiento_id')->references('id')->on('entrenamientos')->onDelete('cascade');
+            $table->foreign('horario_id')->references('id')->on('horarios')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 

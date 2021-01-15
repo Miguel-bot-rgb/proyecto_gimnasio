@@ -16,8 +16,9 @@ class CreateMembresiaDiasTable extends Migration
         Schema::create('membresia_dias', function (Blueprint $table) {
             $table->id();
             $table->integer('dias_semanas');
-            $table->integer('membresias_id')->unique();
+            $table->unsignedBigInteger('membresias_id')->unique();
             $table->foreign('membresias_id')->references('id')->on('membresias')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
