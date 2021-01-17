@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\OficioController;
@@ -30,3 +31,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::resource('oficios', OficioController::class)->parameters(['oficios' => 'tag'])->names('admin.oficios');
+Route::resource('clientes', ClienteController::class)->parameters(['clientes' => 'tag'])->names('admin.clientes');

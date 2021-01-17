@@ -240,6 +240,12 @@ return [
             'icon'        => 'fas fa-tachometer-alt fa-fw',
         ],
         [
+            'text' => 'Clientes',
+            'route'  => 'admin.clientes.index',
+            'icon' => 'far fa-fw fa-bookmark',
+            'active' => ['/clientes*'],
+        ],
+        [
             'text' => 'Oficios',
             'route'  => 'admin.oficios.index',
             'icon' => 'far fa-fw fa-bookmark',
@@ -248,7 +254,7 @@ return [
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
-            'url'  => 'admin/settings',
+            'url'  => 'dashboard',
             'icon' => 'fas fa-fw fa-user',
         ],
         [

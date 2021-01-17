@@ -19,6 +19,8 @@ class CreatePagosTable extends Migration
             $table->float('monto');
             $table->integer('NIT')->unique();
             $table->integer('Nro_factura')->unique();
+            $table->timestamps();
+
         });
     }
 
