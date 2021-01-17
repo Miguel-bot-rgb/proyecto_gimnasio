@@ -26,10 +26,14 @@ class PruebaController extends Controller
         $prueba->Sueldo = $request->sueldo;
 
         // return $prueba;
+        //comentario de prueba
+
         $prueba->save();
+        return $prueba;
     }
     public function show($dato)
     {
         return view('paginas.prueba3', compact('dato'));;
+
     }
 }
