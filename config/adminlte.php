@@ -85,8 +85,8 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
-    'layout_fixed_navbar' => null,
+    'layout_fixed_sidebar' => true,
+    'layout_fixed_navbar' => true,
     'layout_fixed_footer' => null,
 
     /*
@@ -235,11 +235,15 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text'        => 'Dashboard',
+            'route'         => 'main.pag_principal',
+            'icon'        => 'fas fa-tachometer-alt fa-fw',
+        ],
+        [
+            'text' => 'Oficios',
+            'route'  => 'admin.oficios.index',
+            'icon' => 'far fa-fw fa-bookmark',
+            'active' => ['/oficios*'],
         ],
         ['header' => 'account_settings'],
         [

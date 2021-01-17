@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MainController;
+use App\Http\Controllers\OficioController;
 use App\Http\Controllers\PruebaController;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\Routing\Router;
@@ -21,11 +23,10 @@ use Symfony\Component\Routing\Router;
 
 Route::get('/', HomeController::class);
 
-Route::get('prueba', [PruebaController::class, 'index'])->name('prueba.index');
-Route::get('prueba/test', [PruebaController::class, 'create'])->name('prueba.create');
-Route::post('prueba', [PruebaController::class, 'practica'])->name('prueba.practica');
-Route::get('prueba/{dato}', [PruebaController::class, 'show'])->name('prueba.show');
+Route::get('main', [MainController::class, 'vista_principal'])->name('main.pag_principal');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::resource('oficios', OficioController::class)->parameters(['oficios' => 'tag'])->names('admin.oficios');
