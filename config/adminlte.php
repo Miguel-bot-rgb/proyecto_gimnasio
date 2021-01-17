@@ -239,6 +239,7 @@ return [
             'route'         => 'main.pag_principal',
             'icon'        => 'fas fa-tachometer-alt fa-fw',
         ],
+        // tablas
         [
             'text' => 'Clientes',
             'route'  => 'admin.clientes.index',
@@ -246,11 +247,18 @@ return [
             'active' => ['/clientes*'],
         ],
         [
+            'text' => 'Servicios',
+            // 'route'  => 'admin.servicios.index',
+            'icon' => 'far fa-fw fa-bookmark',
+            'active' => ['/servicios*'],
+        ],
+        [
             'text' => 'Oficios',
             'route'  => 'admin.oficios.index',
             'icon' => 'far fa-fw fa-bookmark',
             'active' => ['/oficios*'],
         ],
+        // fin tabla
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
