@@ -247,11 +247,26 @@ return [
             'active' => ['/clientes*'],
         ],
         [
-            'text' => 'Servicios',
-            // 'route'  => 'admin.servicios.index',
+            'text' => 'Entrenamiento',
+            // 'route'  => 'admin.entrenamiento.index',
             'icon' => 'far fa-fw fa-bookmark',
-            'active' => ['/servicios*'],
+            // 'active' => ['/entrenamiento*'],
+            'submenu' => [
+                [
+                    'text' => 'Servicios',
+                    'route'  => 'admin.servicios.index',
+                    // 'icon' => 'far fa-fw fa-bookmark',
+                    'active' => ['/servicios*'],
+                ],
+                [
+                    'text' => 'Secciones',
+                    'route'  => 'admin.secciones.index',
+                    // 'icon' => 'far fa-fw fa-bookmark',
+                    'active' => ['/secciones*'],
+                ],
+            ]
         ],
+        
         [
             'text' => 'Oficios',
             'route'  => 'admin.oficios.index',
