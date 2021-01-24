@@ -15,10 +15,10 @@ class CreateEntrenamientosTable extends Migration
     {
         Schema::create('entrenamientos', function (Blueprint $table) {
             $table->id();
-            $table->text('observaciones');
+            $table->text('observacion');
             $table->string('estado');
-            $table->unsignedBigInteger('servicios_id')->unique();
-            $table->unsignedBigInteger('secciones_id')->unique();
+            $table->unsignedBigInteger('servicios_id');
+            $table->unsignedBigInteger('secciones_id');
             $table->foreign('servicios_id')->references('id')->on('servicios')->onDelete('cascade');
             $table->foreign('secciones_id')->references('id')->on('seccions')->onDelete('cascade');
             $table->timestamps();

@@ -9,5 +9,10 @@ class servicio extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nombre', 'descripcion'];
+    protected $fillable = ['nombreS', 'descripcion'];
+
+    public function entrenamiento()
+    {
+        return $this->hasMany('App\model\entrenamiento');
+    }
 }

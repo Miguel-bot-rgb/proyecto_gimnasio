@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\servicio;
 
-class ServicioController extends Controller
+class EmpleadosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,7 @@ class ServicioController extends Controller
      */
     public function index()
     {
-        $tags = servicio::all();
-        return view('admin.servicios.index',compact('tags'));
+        //
     }
 
     /**
@@ -25,7 +23,7 @@ class ServicioController extends Controller
      */
     public function create()
     {
-        return view('admin.servicios.create');
+        //
     }
 
     /**
@@ -36,14 +34,7 @@ class ServicioController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nombreS' => 'required',
-            'descripcion' => 'required',
-        ]);
-
-        $tag = servicio::create($request->all());
-
-        return redirect()->route('admin.servicios.index', compact('tag'))->with('info', 'Se creo con exito');
+        //
     }
 
     /**
@@ -52,7 +43,7 @@ class ServicioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(servicio $tag)
+    public function show($id)
     {
         //
     }
@@ -63,9 +54,9 @@ class ServicioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(servicio $tag)
+    public function edit($id)
     {
-        return view('admin.servicios.edit', compact('tag'));
+        //
     }
 
     /**
@@ -75,16 +66,9 @@ class ServicioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, servicio $tag)
+    public function update(Request $request, $id)
     {
-        $request->validate([
-            'nombre' => 'required',
-            'descripcion' => 'required',
-
-       ]);
-        
-        $tag->update($request->all());
-         return redirect()->route('admin.servicios.index',$tag)->with('info', 'los datos se actualizaron con exito');
+        //
     }
 
     /**
@@ -93,10 +77,8 @@ class ServicioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(servicio $tag)
+    public function destroy($id)
     {
-        $tag->delete();
-
-        return redirect()->route('admin.servicios.index')->with('info', 'los datos se eliminaron con exito');
+        //
     }
 }

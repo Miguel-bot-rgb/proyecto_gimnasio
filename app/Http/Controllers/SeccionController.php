@@ -37,7 +37,7 @@ class SeccionController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nombre' => 'required',
+            'nombreSC' => 'required',
             'descripcion' => 'required',
         ]);
 

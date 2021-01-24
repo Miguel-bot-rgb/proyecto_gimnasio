@@ -30,7 +30,7 @@
                     @foreach ($tags as $tag)
                         <tr>
                             <td>{{ $tag->id }}</td>
-                            <td>{{ $tag->nombre }}</td>
+                            <td>{{ $tag->nombreSC}}</td>
                             <td>{{ $tag->descripcion }}</td>
                             <td width="10px">
                                 <a href="{{ route('admin.secciones.edit', $tag) }}" class="btn btn-primary btn-sm">Edit</a>

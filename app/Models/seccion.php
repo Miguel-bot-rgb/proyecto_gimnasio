@@ -8,5 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class seccion extends Model
 {
     use HasFactory;
-    protected $fillable = ['nombre', 'descripcion'];
+    protected $fillable = ['nombreSC', 'descripcion'];
+
+    public function entrenamiento()
+    {
+        return $this->hasMany('App\model\entrenamiento');
+    }
 }

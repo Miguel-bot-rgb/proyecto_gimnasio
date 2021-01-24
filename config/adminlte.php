@@ -246,12 +246,40 @@ return [
             'icon' => 'far fa-fw fa-bookmark',
             'active' => ['/clientes*'],
         ],
+
+        [
+            'text' => 'Empleados',
+            // 'route'  => 'admin.entrenamiento.index',
+            'icon' => 'far fa-fw fa-bookmark',
+            // 'active' => ['/entrenamiento*'],
+            'submenu' => [
+                [
+                    'text' => 'Administrativo',
+                    'route'  => 'admin.empleados.index',
+                    // 'icon' => 'far fa-fw fa-bookmark',
+                    'active' => ['/entrenamientos*'],
+                ],
+                [
+                    'text' => 'Entrenadores',
+                    'route'  => 'admin.empleados.index',
+                    // 'icon' => 'far fa-fw fa-bookmark',
+                    'active' => ['/servicios*'],
+                ],
+            ]
+        ],
+
         [
             'text' => 'Entrenamiento',
             // 'route'  => 'admin.entrenamiento.index',
             'icon' => 'far fa-fw fa-bookmark',
             // 'active' => ['/entrenamiento*'],
             'submenu' => [
+                [
+                    'text' => 'Entrenamientos',
+                    'route'  => 'admin.entrenamientos.index',
+                    // 'icon' => 'far fa-fw fa-bookmark',
+                    'active' => ['/entrenamientos*'],
+                ],
                 [
                     'text' => 'Servicios',
                     'route'  => 'admin.servicios.index',
@@ -266,7 +294,7 @@ return [
                 ],
             ]
         ],
-        
+
         [
             'text' => 'Oficios',
             'route'  => 'admin.oficios.index',
