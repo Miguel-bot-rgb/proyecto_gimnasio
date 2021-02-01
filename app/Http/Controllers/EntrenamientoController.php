@@ -19,18 +19,18 @@ class EntrenamientoController extends Controller
     public function index()
     {
 
-    //   Consulta
+        //   Consulta
         $entrs = DB::table('entrenamientos')
             ->join('servicios', 'servicios_id', '=', 'servicios.id')
             ->join('seccions', 'secciones_id', '=', 'seccions.id')
             ->select('servicios.nombreS', 'seccions.nombreSC', 'entrenamientos.observacion', 'entrenamientos.estado')
             ->get();
-
-        return view('admin.entrenamientos.index', compact('entrs'));
+        $entrs_descrip = entrenamiento::all();
+        return view('admin.entrenamientos.index', compact('entrs','entrs_descrip'));
+        // $entrs = entrenamiento::all();
         // return DD($entrs);
-
+        // return $entrs;
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -38,11 +38,8 @@ class EntrenamientoController extends Controller
      */
     public function create()
     {
-        // $servs = servicio::select('nombreS')->get()->pluck('nombreS');
         $servs = servicio::all();
         $seccs = seccion::all();
-        // $seccs = seccion::select('nombreSC')->get()->pluck('nombreSC');
-
         $stds = ['activo' => 'activo', 'desactivo' => 'desactivo'];
         return view('admin.entrenamientos.create', compact('servs', 'seccs', 'stds'));
         // return $servs;
@@ -97,7 +94,8 @@ class EntrenamientoController extends Controller
      */
     public function edit(entrenamiento $tag)
     {
-        return view('admin.entrenamientos.edit', compact('tag'));
+        $stds = ['activo' => 'activo', 'desactivo' => 'desactivo'];
+        return view('admin.entrenamientos.edit', compact('tag', 'stds'));
     }
 
     /**
@@ -110,10 +108,9 @@ class EntrenamientoController extends Controller
     public function update(Request $request, entrenamiento $tag)
     {
         $request->validate([
-            'DNI' => 'required',
-            'Apellido' => 'required',
-            'Nombre' => 'required',
-            'Telefono' => 'required',
+            'descripcion' => 'required',
+            'observacion' => 'required',
+            'estado' => 'required',
         ]);
 
         $tag->update($request->all());

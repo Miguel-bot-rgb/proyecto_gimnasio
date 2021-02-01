@@ -32,29 +32,25 @@
                 </thead>
                 <tbody>
                     @foreach ($entrs as $entr)
-                        <tr>
-                            {{-- <td>{{ $entr->id }}</td> --}}
-                            <td>{{ $entr->nombreS }}</td>
-                            <td>{{ $entr->nombreSC }}</td>
-                            <td>{{ $entr->observacion }}</td>
-                            <td>{{ $entr->estado }}</td>
-                            <td width="10px">
-                                {{-- <a href="{{ route('admin.entrenamientos.edit', $entr) }}" class="btn btn-primary btn-sm">Edit</a> --}}
-                                <a href="" class="btn btn-primary btn-sm">Edit</a>
-                            </td>
-                            <td width="10px">
-                                {{-- <form action="{{ route('admin.entrenamientos.destroy', $entr) }}" method="POST">
-                                    @csrf
-                                    @method('delete')
-                                    <button class="btn btn-danger btn-sm" type="summit">Eliminar</button>
-                                </form> --}}
-                                <form action="" method="POST">
-                                    @csrf
-                                    @method('delete')
-                                    <button class="btn btn-danger btn-sm" type="summit">Eliminar</button>
-                                </form>
-                            </td>
-                        </tr>
+                        @foreach ($entrs_descrip as $entr_descrip)
+                            <tr>
+                                <td>{{ $entr->nombreS }}</td>
+                                <td>{{ $entr->nombreSC }}</td>
+                                <td>{{ $entr->observacion }}</td>
+                                <td>{{ $entr->estado }}</td>
+                                <td width="10px">
+                                    <a href="{{ route('admin.entrenamientos.edit', $entr_descrip) }}"
+                                        class="btn btn-primary btn-sm">Edit</a>
+                                </td>
+                                <td width="10px">
+                                    <form action="{{ route('admin.entrenamientos.destroy', $entr_descrip) }}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button class="btn btn-danger btn-sm" type="summit">Eliminar</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
                     @endforeach
                 </tbody>
             </table>
@@ -63,13 +59,13 @@
 
 @stop
 
-{{-- @section('css')
-<link rel="stylesheet" href="/css/admin_custom.css">
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 
 @section('js')
-<script>
-    console.log('Hi!');
+    <script>
+        console.log('Hi!');
 
-</script>
-@stop --}}
+    </script>
+@stop

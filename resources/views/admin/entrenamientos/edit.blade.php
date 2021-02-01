@@ -11,14 +11,41 @@
     @if (session('info'))
         <div class="alert alert-success">
             <button type="button" class="close" data-dismiss="alert">×</button>
-            <strong>{{session('info')}}</strong>
+            <strong>{{ session('info') }}</strong>
         </div>
     @endif
 
     <div class="card">
         <div class="card-body">
             {!! Form::model($tag, ['route' => ['admin.entrenamientos.update', $tag], 'method' => 'put']) !!}
-            @include('admin.entrenamientos.partials.form')
+
+            <div class="form-group">
+                {!! Form::label('descripcion', 'descripcion:') !!}
+                {!! Form::text('descripcion', null, ['class' => 'form-control', 'placeholder' => 'Ingrese descripcion...'])
+                !!}
+                @error('descripcion')
+                    <small class="text-danger">{{ $message }}</small>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('observacion', 'observaciones:') !!}
+                {!! Form::text('observacion', null, ['class' => 'form-control', 'placeholder' => 'Ingrese observacion...'])
+                !!}
+                @error('observaciones')
+                    <small class="text-danger">{{ $message }}</small>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('estado', 'estado:') !!}
+                {{-- {!! Form::text('estado', null, ['class' => 'form-control', 'placeholder'
+                => 'Ingrese observacion...']) !!} --}}
+                {!! Form::select('estado', $stds, null, ['class' => 'form-control']) !!}
+                @error('estado')
+                    <small class="text-danger">{{ $message }}</small>
+                @enderror
+            </div>
             {!! Form::submit('Actualizar', ['class' => 'btn btn-primary']) !!}
 
             {!! Form::close() !!}

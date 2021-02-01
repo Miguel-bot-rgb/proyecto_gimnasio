@@ -12,6 +12,6 @@ class seccion extends Model
 
     public function entrenamiento()
     {
-        return $this->hasMany('App\model\entrenamiento');
+        return $this->hasMany(entrenamiento::class);
     }
 }

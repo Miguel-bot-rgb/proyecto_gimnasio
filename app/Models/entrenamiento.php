@@ -13,10 +13,10 @@ class entrenamiento extends Model
 
     public function servicio()
     {
-        return $this->belongsTo('App\Model\servicio');
+        return $this->belongsTo(servicio::class);
     }
     public function seccion()
     {
-        return $this->belongsTo('App\Model\seccion');
+        return $this->belongsTo(seccion::class);
     }
 }

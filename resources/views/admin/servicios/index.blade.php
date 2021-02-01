@@ -33,7 +33,8 @@
                             <td>{{ $tag->nombreS}}</td>
                             <td>{{ $tag->descripcion }}</td>
                             <td width="10px">
-                                <a href="{{ route('admin.servicios.edit', $tag) }}" class="btn btn-primary btn-sm">Edit</a>
+                                {{-- <a href="{{ route('admin.servicios.edit', $tag) }}" class="btn btn-primary btn-sm">Edit</a> --}}
+                                <a href="" class="btn btn-primary btn-sm">Edit</a>
                             </td>
                             <td width="10px">
                                 <form action="{{ route('admin.servicios.destroy', $tag) }}" method="POST">
