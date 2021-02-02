@@ -34,7 +34,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::resource('oficios', OficioController::class)->parameters(['oficios' => 'tag'])->names('admin.oficios');
+
 Route::resource('clientes', ClienteController::class)->parameters(['clientes' => 'tag'])->names('admin.clientes');
+
 Route::resource('servicios', ServicioController::class)->parameters(['servicios' => 'tag'])->names('admin.servicios');
 Route::resource('secciones', SeccionController::class)->parameters(['secciones' => 'tag'])->names('admin.secciones');
 Route::resource('entrenamientos', EntrenamientoController::class)->parameters(['entrenamientos' => 'tag'])->names('admin.entrenamientos');
