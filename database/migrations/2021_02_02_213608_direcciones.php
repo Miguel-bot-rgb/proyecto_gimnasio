@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDireccinesTable extends Migration
+class Direcciones extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateDireccinesTable extends Migration
      */
     public function up()
     {
-        Schema::create('_direccines', function (Blueprint $table) {
+        Schema::create('Direcciones', function (Blueprint $table) {
             $table->id();
-            $table->string('ubicacion');
+            $table->string('direccion');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateDireccinesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_direccines');
+        Schema::dropIfExists('Direcciones');
     }
 }
