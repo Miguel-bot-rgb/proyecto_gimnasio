@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Horario extends Migration
+class MembresiaPlan extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class Horario extends Migration
      */
     public function up()
     {
-        Schema::create('Horario', function (Blueprint $table) {
+        Schema::create('membresia_plan', function (Blueprint $table) {
             $table->id();
-            $table->time('hora_inicio');    
-            $table->time('hora_fin');        
+            $table->string('plan',45);
+            $table->float('precio');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class Horario extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Horario');
+        Schema::dropIfExists('membresia_plan');
     }
 }

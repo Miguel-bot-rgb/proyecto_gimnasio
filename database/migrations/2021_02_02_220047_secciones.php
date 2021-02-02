@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Horario extends Migration
+class Secciones extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class Horario extends Migration
      */
     public function up()
     {
-        Schema::create('Horario', function (Blueprint $table) {
+        Schema::create('Secciones', function (Blueprint $table) {
             $table->id();
-            $table->time('hora_inicio');    
-            $table->time('hora_fin');        
+            $table->string('nombre',45);
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class Horario extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Horario');
+        Schema::dropIfExists('Secciones');
     }
 }
