@@ -16,7 +16,7 @@ class CreateClientesTable extends Migration
         Schema::create('clientes', function (Blueprint $table) {
             //$table->id();
             // llave primaria
-            $table->unsignedBigInteger('dni')->unique();
+            $table->unsignedBigInteger('dni');
             $table->primary('dni');
             $table->string('nombre',45);
             $table->string('telefono',8)->nullable();
