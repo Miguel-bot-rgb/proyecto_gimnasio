@@ -14,7 +14,11 @@ class CreateReciboDetalleEntrenamientosTable extends Migration
     public function up()
     {
         Schema::create('recibo_detalle__entrenamientos', function (Blueprint $table) {
-            $table->id();
+            $table->unsignedBigInteger('recibo_nro');
+            $table->foreign('recibo_nro')->references('id')->on('recibos')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->unsignedBigInteger('Entrenamiento_h_id');
+            $table->foreign('Entrenamiento_h_id')->references('id')->on('entrenamiento_horarios')->cascadeOnDelete()->cascadeOnUpdate();
+            
             $table->timestamps();
         });
     }

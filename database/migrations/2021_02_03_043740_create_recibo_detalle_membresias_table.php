@@ -15,6 +15,11 @@ class CreateReciboDetalleMembresiasTable extends Migration
     {
         Schema::create('recibo_detalle_membresias', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('recibo_nro');
+            $table->foreign('recibo_nro')->references('id')->on('recibos')->cascadeOnDelete()->cascadeOnUpdate();
+            
+            $table->unsignedBigInteger('membresia_id');
+            $table->foreign('membresia_id')->references('id')->on('membresias')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }
