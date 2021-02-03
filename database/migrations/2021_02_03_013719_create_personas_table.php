@@ -16,7 +16,7 @@ class CreatePersonasTable extends Migration
         Schema::create('personas', function (Blueprint $table) {
             // $table->id();
             //llave primaria
-            $table->integer('dni')->unique();
+            $table->unsignedBigInteger('dni');
             $table->primary('dni');
            //------------------------------------------------------------------------------------------------>
             $table->string('nombre',45);
