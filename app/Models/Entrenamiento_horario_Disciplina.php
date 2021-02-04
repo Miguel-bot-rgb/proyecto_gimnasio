@@ -5,9 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cliente extends Model
+class Entrenamiento_horario_Disciplina extends Model
 {
     use HasFactory;
-    protected $primaryKey = 'dni';
-    public $incrementing = false;
 }

@@ -5,9 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cliente extends Model
+class Disciplina extends Model
 {
     use HasFactory;
-    protected $primaryKey = 'dni';
-    public $incrementing = false;
+    public function seccion()
+    {
+        return $this->belongsTo(Seccion::class);
+    }
 }

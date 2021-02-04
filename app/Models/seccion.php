@@ -5,13 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class seccion extends Model
+class Seccion extends Model
 {
     use HasFactory;
-    protected $fillable = ['nombreSC', 'descripcion'];
-
-    public function entrenamiento()
+    public function disciplinas()
     {
-        return $this->hasMany(entrenamiento::class);
+        return $this->hasMany(Disciplina::class);
     }
 }
