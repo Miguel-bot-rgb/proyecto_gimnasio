@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEntrenamientoHorariosTable extends Migration
+class CreateRecibosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,13 @@ class CreateEntrenamientoHorariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('entrenamiento_horarios', function (Blueprint $table) {
+        Schema::create('recibos', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('cliente_dni');
             $table->unsignedBigInteger('persona_dni');
-            $table->unsignedBigInteger('disciplina_id');
-            $table->unsignedBigInteger('horario_id');
+            $table->foreign('cliente_dni')->references('dni')->on('clientes')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('persona_dni')->references('dni')->on('personas')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('disciplina_id')->references('id')->on('disciplinas')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('horario_id')->references('id')->on('horarios')->onDelete('cascade')->onUpdate('cascade');
-            $table->integer('cupos');
+            $table->date('fecha');
             $table->timestamps();
         });
     }
@@ -33,6 +31,6 @@ class CreateEntrenamientoHorariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('entrenamiento_horarios');
+        Schema::dropIfExists('recibos');
     }
 }

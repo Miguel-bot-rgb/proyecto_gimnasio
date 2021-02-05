@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEntrenamientoHorariosDisciplinasTable extends Migration
+class CreateMembresiasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class CreateEntrenamientoHorariosDisciplinasTable extends Migration
      */
     public function up()
     {
-        Schema::create('_entrenamiento_horarios__disciplinas', function (Blueprint $table) {
+        Schema::create('membresias', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
+            $table->text('descripcion');
+            $table->unsignedBigInteger('membresia_plan_id');
+            $table->foreign('membresia_plan_id')->references('id')->on('membresia_plans')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreateEntrenamientoHorariosDisciplinasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_entrenamiento_horarios__disciplinas');
+        Schema::dropIfExists('membresias');
     }
 }

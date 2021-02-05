@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class EntrenamientoHorarioDisciplinaController extends Controller
+class AsistenciaController extends Controller
 {
     //
 }
