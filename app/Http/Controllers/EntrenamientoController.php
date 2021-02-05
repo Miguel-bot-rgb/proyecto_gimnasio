@@ -27,9 +27,6 @@ class EntrenamientoController extends Controller
             ->get();
         $entrs_descrip = entrenamiento::all();
         return view('admin.entrenamientos.index', compact('entrs','entrs_descrip'));
-        // $entrs = entrenamiento::all();
-        // return DD($entrs);
-        // return $entrs;
     }
     /**
      * Show the form for creating a new resource.
