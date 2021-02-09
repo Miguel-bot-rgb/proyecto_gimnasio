@@ -6,10 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Seccion extends Model
-{
-    use HasFactory;
+{   use HasFactory;
+    protected $table = 'seccions';
+    protected $fillable=['nombre'];
     public function disciplinas()
-    {
+    { 
+       
         return $this->hasMany(Disciplina::class);
     }
 }
